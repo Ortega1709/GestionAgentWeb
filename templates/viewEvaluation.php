@@ -17,7 +17,8 @@
 </head>
 <body>
   <div class="container-md">
-  <table>
+    <h2>Gestion d'Evaluation</h2>
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -51,6 +52,10 @@
     </tbody>
     <?php } ?>
   </table>
+  <hr class="my-4">
+  <div class="container-md">
+  <button type="button" class="btn btn-primary">Éditer</button>
+  </div>
   </div>
   
 </body>

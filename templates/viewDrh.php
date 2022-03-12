@@ -16,8 +16,9 @@
 </head>
 <body>
   <div class="container-md">
+    <h2>Gestion des DRHs</h2>
     <table class="table">
-      <thead class="thead-dark">
+      <thead>
           <tr>
           <th scope="col">ID</th>
           <th scope="col">Email</th>
@@ -34,6 +35,7 @@
       </tbody>
       <?php } ?>
     </table>
+    <hr class="my-4">
   </div>
 </body>
 </html>

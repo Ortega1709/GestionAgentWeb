@@ -16,6 +16,7 @@
 </head>
 <body>
   <div class="container-md">
+    <h2>Gestion d'Agents</h2>
       <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -50,6 +51,10 @@
       </tbody>
       <?php } ?>
     </table>
+    <hr class="my-4">
+    <div class="container-md">
+    <button type="button" class="btn btn-primary">Éditer</button>
+    </div>
   </div>
 </body>
 </html>
