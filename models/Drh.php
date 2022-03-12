@@ -64,5 +64,13 @@
     return $res;
   }
 
+  function nbDrh($connection){
+    $sql = "SELECT * FROM Drh";
+    $res = $connection->query($sql);
+    $nb = mysqli_num_rows($res);
+
+    return $nb;
+  }
+
   
 ?>

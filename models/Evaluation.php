@@ -53,4 +53,13 @@
     return $res;
   }
 
+  /* FONCTION QUI AFFICHE LE NOMBRE D'EVALUATION */
+  function nbEvaluation($connection){
+    $sql = "SELECT * FROM Evaluation";
+    $res = $connection->query($sql);
+    $nb = mysqli_num_rows($res);
+
+    return $nb;
+  }
+  
 ?>

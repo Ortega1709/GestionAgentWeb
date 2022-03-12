@@ -4,6 +4,16 @@
   if (empty($_SESSION['current_user'])) {
     header("Location: ../index.php");
   }
+
+  require("../models/ConnexionDatabase.php");
+  require("../models/Agent.php");
+  require("../models/Drh.php");
+  require("../models/Evaluation.php");
+
+  $nba = nbAgent($connection);
+  $nbd = nbDrh($connection);
+  $nbe = nbEvaluation($connection);
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +44,54 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav></br>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $nba; ?></h5>
+          <p class="card-text">Nombre d'agents enregistrés.</p>
+          <a href="#" class="btn btn-primary">Éditer</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Éditer</a>
+        </div>
+      </div>
+    </div>
+  </div></br>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Éditer</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Éditer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+
   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

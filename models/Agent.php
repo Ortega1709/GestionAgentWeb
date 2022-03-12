@@ -1,6 +1,6 @@
 <?php 
-  require("../models/ConnexionDatabase.php");
-  
+  //require("../models/ConnexionDatabase.php");
+
   /* FONCTION D'AJOUT D'UN AGENT */
   function ajoutAgent($nom,$postnom,$prenom,$profil,$adresse,$fonction,$telephone,$dateNaissance,$email,$connection){
     $sql = "INSERT INTO Agent (nom,postNom,prenom,profil,adresse,fonction,telephone,dateNaissance,email)".
@@ -57,18 +57,30 @@
 
   /* FONCTION POUR AFFICHER LE NOMBRE D'AGENT */
   function nbAgent($connection){
-    $sql = "SELECT COUNT(*) FROM Agent";
+    $sql = "SELECT * FROM Agent";
     $res = $connection->query($sql);
-    return $res;
+    $nb = mysqli_num_rows($res);
+
+    return $nb;
   }
 
   /* FONCTION POUR AFFICHER LE NOMBRE D'AGENT EVALUE */
   function nbAgentEvalue($connection){
-    $a = 1;
-    $sql = "SELECT COUNT(*) FROM Agent WHERE estEvalue = $a";
+    $sql = "SELECT * FROM Agent WHERE estEvalue = '1'";
     $res = $connection->query($sql);
-    return $res;
+    $nb = mysqli_num_rows($res);
+
+    return $nb;
   }
 
-  echo pi();
+  /* FONCTION POUR AFFICHER LE NOMBRE D'AGENT NON EVALUE */
+  function nbAgentNonEvalue($connection){
+    $sql = "SELECT * FROM Agent WHERE estEvalue = '0'";
+    $res = $connection->query($sql);
+    $nb = mysqli_num_rows($res);
+
+    return $nb;
+  }
+
+  
 ?>
