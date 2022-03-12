@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>DASHBOARD-ADMIN</title>
 </head>
-<body>
+
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><h6><?php echo $_SESSION["current_user"]; ?></h6></a>
@@ -46,22 +46,23 @@
     </div>
   </nav></br>
 
+  <div class="container-md">
   <div class="row">
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"><?php echo $nba; ?></h5>
           <p class="card-text">Nombre d'agents enregistrés.</p>
-          <a href="#" class="btn btn-primary">Éditer</a>
+          <a href="../templates/viewAgent.php" class="btn btn-primary">Voir</a>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Éditer</a>
+          <h5 class="card-title"><?php echo $nbe; ?></h5>
+          <p class="card-text">Nombre d'évaluations effectuées.</p>
+          <a href="../templates/viewEvaluation.php" class="btn btn-primary">Voir</a>
         </div>
       </div>
     </div>
@@ -71,9 +72,9 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Éditer</a>
+          <h5 class="card-title"><?php echo $nbd; ?></h5>
+          <p class="card-text">Nombre de Drhs enregistrés.</p>
+          <a href="../templates/viewDrh.php" class="btn btn-primary">Voir</a>
         </div>
       </div>
     </div>
@@ -82,16 +83,13 @@
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Éditer</a>
+          <a href="#" class="btn btn-primary">Voir</a>
         </div>
       </div>
     </div>
   </div>
-
+  </div>
   
-
-  
-
   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

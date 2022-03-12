@@ -11,22 +11,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>VIEW-DRH</title>
 </head>
 <body>
-  <table>
-    <thead>
-      <th>ID</th>
-      <th>Email</th>
-      <th>Mot de Passe</th>
-    </thead>
-    <?php while($lignes = $result->fetch_array()){ ?>
-    <tbody>
-      <td><?php echo $lignes['id']; ?></td>
-      <td><?php echo $lignes['email']; ?></td>
-      <td><?php echo $lignes['motDePasse']; ?></td>
-    </tbody>
-    <?php } ?>
-  </table>
+  <div class="container-md">
+    <table class="table">
+      <thead class="thead-dark">
+          <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mot de Passe</th>
+          </tr>
+      </thead>
+    <?php while($lignes = $result->fetch_array()) {?>
+      <tbody>
+        <tr>
+          <td><?php echo $lignes['id']; ?></td>
+          <td><?php echo $lignes['email']; ?></td>
+          <td><?php echo $lignes['motDePasse']; ?></td>
+        </tr>
+      </tbody>
+      <?php } ?>
+    </table>
+  </div>
 </body>
 </html>

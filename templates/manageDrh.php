@@ -8,6 +8,10 @@
   <title>MANAGE-DRH</title>
 </head>
 <body>
-  
+  <div class="container-md">
+    <form action="../controllers/agentController.php" method="post">
+
+    </form>
+  </div>
 </body>
 </html>
