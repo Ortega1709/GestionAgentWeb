@@ -49,7 +49,7 @@
   <div class="container-md">
   <div class="row">
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card shadow p-3 mb-5 bg-body rounded">
         <div class="card-body">
           <h5 class="card-title"><?php echo $nba; ?></h5>
           <p class="card-text">Nombre d'agents enregistrés.</p>
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card shadow p-3 mb-5 bg-body rounded">
         <div class="card-body">
           <h5 class="card-title"><?php echo $nbe; ?></h5>
           <p class="card-text">Nombre d'évaluations effectuées.</p>
@@ -70,7 +70,7 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card shadow p-3 mb-5 bg-body rounded">
         <div class="card-body">
           <h5 class="card-title"><?php echo $nbd; ?></h5>
           <p class="card-text">Nombre de Drhs enregistrés.</p>
@@ -79,10 +79,10 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card shadow p-3 mb-5 bg-body rounded">
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">Nombre </p>
           <a href="#" class="btn btn-primary">Voir</a>
         </div>
       </div>

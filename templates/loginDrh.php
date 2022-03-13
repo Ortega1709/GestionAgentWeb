@@ -10,20 +10,26 @@
   <title>LOGIN-AGENT</title>
 </head>
   <body>
-    <form action="../controllers/drhController.php" method="POST">
-        <legend>LOGIN-ADMIN</legend>
-        <div class="mb-3">
-          <label for="emailForm" class="form-label">Email</label>
-          <input type="email" id="emailForm" class="form-control" name="emailAdmin">
-        </div>
-
-        <div class="mb-3">
-          <label for="passwordForm" class="form-label">Password</label>
-          <input type="password" id="passwordForm" class="form-control" name="passwordAdmin">
-        </div>
-      
-        <button type="submit" class="btn btn-primary" name="connexionAgent">Submit</button>
-    </form>
-    
+    <div class="container-sm">
+    <div class="shadow p-3 mb-5 bg-body rounded">
+      <form action="../controllers/drhController.php" method="POST">
+          <legend>LOGIN-ADMIN</legend>
+          <div class="mb-3">
+            <div class="col-auto">
+            <label for="emailForm" class="form-label">Email</label>
+            <input type="email" id="emailForm" class="form-control" name="emailAdmin">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="col-auto">
+            <label for="passwordForm" class="form-label">Password</label>
+            <input type="password" id="passwordForm" class="form-control" name="passwordAdmin">
+            </div>
+          </div>
+        
+          <button type="submit" class="btn btn-primary" name="connexionAgent">Submit</button>
+      </form>
+    </div>
+    </div>
   </body>
 </html>

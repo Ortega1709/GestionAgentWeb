@@ -1,4 +1,8 @@
 <?php 
+  session_start();
+  if (empty($_SESSION['current_user'])) {
+    header("Location: ../index.php");
+  }
   require("../models/ConnexionDatabase.php");
   require("../models/Agent.php");
 
@@ -15,6 +19,24 @@
   <title>VIEW-AGENT</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h6><?php echo $_SESSION["current_user"]; ?></h6></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.php">Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="../templates/loginDrh.php">Déconnexion</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav></br>
   <div class="container-md">
     <h2>Gestion d'Agents</h2>
       <table class="table">
@@ -51,9 +73,10 @@
       </tbody>
       <?php } ?>
     </table>
-    <hr class="my-4">
     <div class="container-md">
-    <button type="button" class="btn btn-primary">Éditer</button>
+    <button type="button" class="btn btn-primary">
+      Éditer
+    </button>
     </div>
   </div>
 </body>

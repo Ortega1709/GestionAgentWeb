@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (empty($_SESSION['current_user'])) {
+  header("Location: ../index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
