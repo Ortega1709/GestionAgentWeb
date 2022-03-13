@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ms-auto ">
           <li class="nav-item">
-            <a class="nav-link" href="../index.php">Acceuil</a>
+            <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="btn btn-primary" href="../templates/loginDrh.php">Déconnexion</a>
@@ -38,7 +38,7 @@
       </div>
     </div>
   </nav></br>
-  <div class="container-md">
+  <div class="container-md shadow p-3 mb-5 bg-body rounded">
     <h2>Gestion d'Evaluations</h2>
   <table class="table">
     <thead>
@@ -75,11 +75,12 @@
     <?php } ?>
   </table>
   <div class="container-md">
-  <button type="button" class="btn btn-primary">
-    Éditer
-  </button>
+  <div class="container-md">
+      <a href="manageEvaluation.php" class="btn btn-primary">Éditer</a>
+  </div>
   </div>
   </div>
   
+  <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

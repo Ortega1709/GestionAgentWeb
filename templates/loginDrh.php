@@ -10,10 +10,11 @@
   <title>LOGIN-AGENT</title>
 </head>
   <body>
+    </br></br>
     <div class="container-sm">
     <div class="shadow p-3 mb-5 bg-body rounded">
+    <h2>LOGIN-ADMIN</h2>
       <form action="../controllers/drhController.php" method="POST">
-          <legend>LOGIN-ADMIN</legend>
           <div class="mb-3">
             <div class="col-auto">
             <label for="emailForm" class="form-label">Email</label>
