@@ -3,6 +3,19 @@ session_start();
 if (empty($_SESSION['current_user'])) {
   header("Location: ../index.php");
 }
+
+require("../models/ConnexionDatabase.php");
+require("../models/Drh.php");
+if (isset($_GET['d'])) {
+  $id = $_GET['d'];
+  $res = rechercherDrh($id,$connection);
+  $lignes = $res->fetch_array();
+  $ID = $lignes['id'];
+  $EMAIL = $lignes['email'];
+  $MOTDEPASSE = $lignes['motDePasse'];
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +34,8 @@ if (empty($_SESSION['current_user'])) {
     <form action="../controllers/drhController.php" method="post">
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
-        <div class="col-auto">
-          <input type="tel" class="form-control" name="inputEmail"> 
+        <div class="col-sm-1">
+          <input type="tel" class="form-control" name="inputID" value="<?php echo $ID; ?>"> 
         </div>
         <div class="col-auto">
         <span  class="form-text">
@@ -33,13 +46,13 @@ if (empty($_SESSION['current_user'])) {
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-9">
-          <input type="email" class="form-control" name="inputEmail">
+          <input type="email" class="form-control" name="inputEmail" value="<?php echo $EMAIL; ?>">
         </div>
     </div>
     <div class="row mb-3">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-9">
-          <input type="password" class="form-control" name="inputPassword">
+          <input type="password" class="form-control" name="inputPassword" value="<?php echo $MOTDEPASSE;?>">
         </div>
     </div>
 

@@ -12,4 +12,70 @@
       header("Location: ../templates/loginDrh.php");
     }
   }
+
+  /* RECHERCHE DRH */
+  if (isset($_POST['rechercherDrh'])) {
+    $id = $_POST['inputID'];
+    if ($id == null) {
+      header("Location: ../templates/manageDrh.php");
+    }else {
+      header("Location: ../templates/manageDrh.php?d=$id");
+    }
+  }
+
+  /* AJOUT DRH */
+  if (isset($_POST['ajouterDrh'])) {
+    $email = $_POST['inputEmail'];  
+    $password = $_POST['inputPassword'];
+    $password1 = $_POST['inputPasswordConfirm'];
+    if ($email != null && $password != null && $password1 != null) {
+      if ($password == $password1) {
+        $res = ajoutDrh($email,$password,$connection);
+        if ($res) {
+          header("Location: ../templates/viewDrh.php?msg=ajout réussi");
+        }else {
+          header("Location: ../templates/viewDrh.php?msg=ajout echoue");
+        }
+      }else{
+        header("Location: ../templates/manageDrh.php");
+      }
+    }else {
+      header("Location: ../templates/manageDrh.php");
+    }
+  }
+
+  /* SUPPRESSION */
+  if (isset($_POST['supprimerDrh'])) {
+    $id = $_POST['inputID'];
+    if ($id == null) {
+      header("Location: ../templates/manageDrh.php");
+    }else {
+      $res = supprimerDrh($id,$connection);
+      if ($res) {
+        header("Location: ../templates/viewDrh.php?msg=suppression réussie");
+      }else {
+        header("Location:../templates/viewDrh.php?msg=suppression échouée");
+      }
+    }
+  }
+
+  /* MODIFICATION */
+  if (isset($_POST['modifierDrh'])) {
+    $ID = $_POST['inputID'];
+    $email = $_POST['inputEmail'];
+    $password = $_POST['inputPassword'];
+    $password1 = $_POST['inputPasswordConfirm'];
+    if ($email != null || $password != null || $password1 != null) {
+      if ($password == $password1) {
+        $res = modifierDrh($ID,$email,$password,$connection);
+        if ($res) {
+          header("Location: ../templates/viewDrh.php?msg=modification réussie");
+        }else {
+          header("Location:../templates/viewDrh.php?msg=modification echouée");
+        }
+      }
+    }else {
+      header("Location: ../templates/manageDrh.php");
+    }
+  }
 ?>
