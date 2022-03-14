@@ -73,6 +73,8 @@
         }else {
           header("Location:../templates/viewDrh.php?msg=modification echouée");
         }
+      }else {
+        header("Location: ../templates/managerDrh.php");
       }
     }else {
       header("Location: ../templates/manageDrh.php");
