@@ -3,6 +3,14 @@ session_start();
 if (empty($_SESSION['current_user'])) {
   header("Location: ../index.php");
 }
+
+require("../models/ConnexionDatabase.php");
+require("../models/Agent.php");
+if (isset($_GET['d'])) {
+  $id = $_GET['d'];
+  $res = rechercherAgent($id,$connection);
+  $lignes = $res->fetch_array();
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +25,13 @@ if (empty($_SESSION['current_user'])) {
 </head>
 <body>
   </br></br>
-  <div class="container-md shadow p-3 mb-5 bg-body rounded">
+  <div class="container-md shadow-lg p-3 mb-5 bg-body rounded">
     <h2>Manage Agents</h2>
     <form action="../controllers/agentController.php" method="post">
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
         <div class="col-sm-1">
-          <input type="tel" class="form-control" name="inputID"> 
+          <input type="tel" class="form-control" name="inputID" value="<?php echo $lignes['id']; ?>"> 
         </div>
         <div class="col-auto">
         <span  class="form-text">
@@ -34,64 +42,57 @@ if (empty($_SESSION['current_user'])) {
     <div class="row mb-3">
       <label for="inputName" class="col-sm-2 col-form-label">Nom complet</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="inputNom">
+          <input type="text" class="form-control" name="inputNom" value="<?php echo $lignes['nom']; ?>">
         </div>
 
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="inputPostNom">
+          <input type="text" class="form-control" name="inputPostNom" value="<?php echo $lignes['postNom']; ?>">
         </div>
 
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="inputPrenom">
-        </div>
-    </div>
-    <div class="row mb-3">
-    <label for="formFile" class="col-sm-2 col-form-label">Profil</label>
-        <div class="col-sm-9">
-        <input class="form-control" type="file" id="formFile" accept=".jpg,.png,.jpeg" name="inputFile">
+          <input type="text" class="form-control" name="inputPrenom" value="<?php echo $lignes['prenom']; ?>">
         </div>
     </div>
 
     <div class="row mb-3">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Adresse</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="inputAdresse">
+          <input type="text" class="form-control" name="inputAdresse" value="<?php echo $lignes['adresse']; ?>">
         </div>
     </div>
 
     <div class="row mb-3">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Fonction</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="inputFonction">
+          <input type="text" class="form-control" name="inputFonction" value="<?php echo $lignes['fonction']; ?>">
         </div>
     </div>
 
     <div class="row mb-3">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Téléphone</label>
         <div class="col-sm-9">
-          <input type="tel" class="form-control" name="inputPhone">
+          <input type="tel" class="form-control" name="inputPhone" value="<?php echo $lignes['telephone']; ?>">
         </div>
     </div>
 
     <div class="row mb-3">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Date de Naissance</label>
         <div class="col-sm-9">
-          <input type="date" class="form-control" name="inputDate">
+          <input type="date" class="form-control" name="inputDate" value="<?php echo $lignes['dateNaissance']; ?>">
         </div>
     </div>
 
     <div class="row mb-3">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-9">
-          <input type="email" class="form-control" name="inputEmail">
+          <input type="email" class="form-control" name="inputEmail" value="<?php echo $lignes['email']; ?>">
         </div>
     </div>
-
-    </form>
     <button type="submit" class="btn btn-primary" name="ajouterAgent">Ajouter</button>
     <button type="submit" class="btn btn-dark" name="rechercherAgent">Rechercher</button>
     <button type="submit" class="btn btn-danger" name="supprimerAgent">Supprimer</button>
     <button type="submit" class="btn btn-success" name="modifierAgent">Modifier</button>
+    </form>
   </div>
 </body>
 </html>

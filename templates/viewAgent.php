@@ -46,7 +46,6 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Post-Nom</th>
                 <th scope="col">Prénom</th>
-                <th scope="col">Profil</th>
                 <th scope="col">Adresse</th>
                 <th scope="col">Fonction</th>
                 <th scope="col">Téléphone</th>
@@ -62,7 +61,6 @@
           <td><?php echo $lignes['nom']; ?></td>
           <td><?php echo $lignes['postNom']; ?></td>
           <td><?php echo $lignes['prenom']; ?></td>
-          <td><?php echo $lignes['profil']; ?></td>
           <td><?php echo $lignes['adresse']; ?></td>
           <td><?php echo $lignes['fonction']; ?></td>
           <td><?php echo $lignes['telephone']; ?></td>

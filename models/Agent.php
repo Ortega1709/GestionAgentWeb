@@ -2,9 +2,9 @@
   //require("../models/ConnexionDatabase.php");
 
   /* FONCTION D'AJOUT D'UN AGENT */
-  function ajoutAgent($nom,$postnom,$prenom,$profil,$adresse,$fonction,$telephone,$dateNaissance,$email,$connection){
-    $sql = "INSERT INTO Agent (nom,postNom,prenom,profil,adresse,fonction,telephone,dateNaissance,email)".
-           "VALUES('$nom','$postnom','$prenom','$profil','$adresse','$fonction','$telephone','$dateNaissance','$email')";
+  function ajoutAgent($nom,$postnom,$prenom,$adresse,$fonction,$telephone,$dateNaissance,$email,$connection){
+    $sql = "INSERT INTO Agent (nom,postNom,prenom,adresse,fonction,telephone,dateNaissance,email)".
+           "VALUES('$nom','$postnom','$prenom','$adresse','$fonction','$telephone','$dateNaissance','$email')";
     $res = $connection->query($sql);
     if($res){
       return 1;
@@ -25,8 +25,8 @@
   }
 
   /* FONCTION DE MODIFICATION D'UN AGENT */
-  function modifierAgent(int $id,$nom,$postnom,$prenom,$profil,$adresse,$fonction,$telephone,$dateNaissance,$email,$connection){
-    $sql = "UPDATE Agent SET nom='$nom',postNom='$postnom',prenom='$prenom',profil='$profil',adresse='$adresse',".
+  function modifierAgent(int $id,$nom,$postnom,$prenom,$adresse,$fonction,$telephone,$dateNaissance,$email,$connection){
+    $sql = "UPDATE Agent SET nom='$nom',postNom='$postnom',prenom='$prenom',adresse='$adresse',".
            "fonction='$fonction',telephone='$telephone',dateNaissance='$dateNaissance',email='$email' ".
            "WHERE id='$id'";
     $res = $connection->query($sql);

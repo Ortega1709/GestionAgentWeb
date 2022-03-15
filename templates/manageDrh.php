@@ -16,6 +16,7 @@ if (isset($_GET['d'])) {
 }
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +63,6 @@ if (isset($_GET['d'])) {
           <input type="password" class="form-control" name="inputPasswordConfirm">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" name="ajouterDrh">Ajouter</button>
     <button type="submit" class="btn btn-dark" name="rechercherDrh">Rechercher</button>
     <button type="submit" class="btn btn-danger" name="supprimerDrh">Supprimer</button>
     <button type="submit" class="btn btn-success" name="modifierDrh">Modifier</button>
