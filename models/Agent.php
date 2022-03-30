@@ -24,6 +24,17 @@
     }
   }
 
+  /* FONCTION DE MODIFICATION D'EVALUATION */
+  function modifierStatusEvaluation(int $id, int $status, $connection){
+    $sql = "UPDATE Agent SET estEvalue=$status WHERE id=$id";
+    $res = $connection->query($sql);
+    if ($res) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+
   /* FONCTION DE MODIFICATION D'UN AGENT */
   function modifierAgent(int $id,$nom,$postnom,$prenom,$adresse,$fonction,$telephone,$dateNaissance,$email,$connection){
     $sql = "UPDATE Agent SET nom='$nom',postNom='$postnom',prenom='$prenom',adresse='$adresse',".
@@ -80,6 +91,13 @@
     $nb = mysqli_num_rows($res);
 
     return $nb;
+  }
+
+  /* FONCTION QUI RETOURNE LES INFORMATIONS D'UN AGENT EVALUÉ */
+  function statusEvalue(int $id, $connection){
+    $sql = "SELECT * FROM Agent WHERE id = '$id' AND estEvalue= '0'";
+    $res = $connection->query($sql);
+    return $res;
   }
 
   

@@ -3,6 +3,14 @@ session_start();
 if (empty($_SESSION['current_user'])) {
   header("Location: ../index.php");
 }
+
+require("../models/ConnexionDatabase.php");
+require("../models/Agent.php");
+if (isset($_GET['d'])) {
+  $id = $_GET['d'];
+  $res = statusEvalue($id, $connection);
+  $lignes = $res->fetch_array();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +30,7 @@ if (empty($_SESSION['current_user'])) {
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label" >ID</label>
         <div class="col-sm-1">
-          <input type="tel" class="form-control" name="inputID" value="<?php echo $lignes['id']; ?>" > 
+          <input type="tel" class="form-control" name="inputID" value="" > 
         </div>
         <div class="col-auto">
           <span  class="form-text">
@@ -46,97 +54,84 @@ if (empty($_SESSION['current_user'])) {
     <div class="row mb-3">
       <label for="inputName" class="col-sm-2 col-form-label">Nom Agent</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="inputNom" value="<?php echo $lignes['nom']; ?>">
+          <input type="text" class="form-control" name="inputNom" value="<?php echo $lignes['nom'].'-'.$lignes['postNom'].'-'.$lignes['prenom']; ?> ">
         </div>
     </div>
 
-    
-    
+  
     <div class="row mb-3">
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Quantité de travail</label>
-        <select class="form-select" id="validationCustom04" name="qt" required>
+        <select class="form-select" id="validationCustom04" name="qt" >
           <option selected disabled value=""> ... </option>
           <option>Mediocre</option>
           <option>Bon</option>
           <option>Très Bon</option>
         </select>
-        <div class="invalid-feedback">
-          Please select a valid state.
-        </div>
+        
       </div>
 
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Qualité de travail</label>
-        <select class="form-select" id="validationCustom04" name="quat" required>
+        <select class="form-select" id="validationCustom04" name="quat" >
           <option selected disabled value=""> ... </option>
           <option>Mediocre</option>
           <option>Bon</option>
           <option>Très Bon</option>
         </select>
-        <div class="invalid-feedback">
-          Please select a valid state.
-        </div>
+        
       </div>
 
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Autonomie de travail</label>
-        <select class="form-select" id="validationCustom04" name="auto" required>
+        <select class="form-select" id="validationCustom04" name="auto" >
           <option selected disabled value=""> ... </option>
           <option>Mediocre</option>
           <option>Bon</option>
           <option>Très Bon</option>
         </select>
-        <div class="invalid-feedback">
-          Please select a valid state.
-        </div>
+        
       </div>
 
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Motivation de travail</label>
-        <select class="form-select" id="validationCustom04" name="mt" required>
+        <select class="form-select" id="validationCustom04" name="mt" >
           <option selected disabled value=""> ... </option>
           <option>Mediocre</option>
           <option>Bon</option>
           <option>Très Bon</option>
         </select>
-        <div class="invalid-feedback">
-          Please select a valid state.
-        </div>
+        
       </div>
     </div>
 
     <div class="row mb-3">
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Prise d'initiative</label>
-        <select class="form-select" id="validationCustom04" name="pi" required>
+        <select class="form-select" id="validationCustom04" name="pi" >
           <option selected disabled value=""> ... </option>
           <option>Mediocre</option>
           <option>Bon</option>
           <option>Très Bon</option>
         </select>
-        <div class="invalid-feedback">
-          Please select a valid state.
-        </div>
+        
       </div>
 
 
       <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Relation avec les autres</label>
-        <select class="form-select" id="validationCustom04" name="rl" required>
+        <select class="form-select" id="validationCustom04" name="rl" >
           <option selected disabled value=""> ... </option>
           <option>Mediocre</option>
           <option>Bon</option>
           <option>Très Bon</option>
         </select>
-        <div class="invalid-feedback">
-          Please select a valid state.
-        </div>
+        
       </div>
-    </div>
+    </div></br>
 
 
-
+    
     <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Ajouter</button>
     <button type="submit" class="btn btn-dark" name="rechercherEvaluation">Rechercher</button>
     <button type="submit" class="btn btn-danger" name="supprimerEvaluation">Supprimer</button>

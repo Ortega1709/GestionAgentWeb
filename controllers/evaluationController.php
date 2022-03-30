@@ -2,10 +2,29 @@
   session_start();
   require("../models/ConnexionDatabase.php");
   require("../models/Evaluation.php");
+  require("../models/Agent.php");
 
   /* AJOUT EVALUATION */
   if (isset($_POST['ajouterEvaluation'])) {
-    echo "ajouter";
+    if (
+      $_POST['inputID'] == null || 
+      $_POST['inputNom'] == null || 
+      $_POST['qt'] == null || 
+      $_POST['quat'] == null ||
+      $_POST['auto'] == null ||
+      $_POST['mt'] == null ||
+      $_POST['pi'] == null ||
+      $_POST['rl'] == null) {
+        header("Location: ../templates/viewEvaluation.php?msg=Erreur d'évaluation");
+      }else{
+        $res = ajoutEvaluation($_POST['inputID'],$_POST['inputNom'],$_SESSION['current_user'],$_POST['qt'],$_POST['quat'],$_POST['auto'],$_POST['mt'],$_POST['pi'],$_POST['rl'],date('y-m-d h:i:s'),$connection);
+        $res1 = modifierStatusEvaluation($_POST['inputID'],1,$connection);
+        if ($res && $res1) {
+          header("Location: ../templates/viewEvaluation.php?msg=Evaluation réussie");
+        }else {
+          header("Location: ../templates/viewEvaluation.php?msg=Erreur d'évaluation");
+        }
+      }
   }
 
   /* RECHERCHER EVALUATION */
