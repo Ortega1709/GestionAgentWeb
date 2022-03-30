@@ -52,7 +52,7 @@
 
     /*while ($lignes = $res->fetch_array()) {
       echo $lignes['id'];
-    }*/
+    }*/ 
   }
 
   /* FONCTION POUR AFFICHER LE NOMBRE D'AGENT */

@@ -16,15 +16,132 @@ if (empty($_SESSION['current_user'])) {
 </head>
 <body>
   </br></br>
-  <div class="container-md shadow p-3 mb-5 bg-body rounded">
+  <div class="container-md shadow-lg p-3 mb-5 bg-body rounded">
     <h2>Manage Evaluations</h2>
     <form action="../controllers/evaluationController.php" method="post">
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label" >ID</label>
+        <div class="col-sm-1">
+          <input type="tel" class="form-control" name="inputID" value="<?php echo $lignes['id']; ?>" > 
+        </div>
+        <div class="col-auto">
+          <span  class="form-text">
+            L' utiliser pour la recherche d'agents évalués.
+          </span>
+        </div>
+    </div>
 
-    </form>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">ID Agent</label>
+        <div class="col-sm-1">
+          <input type="tel" class="form-control" name="inputID" value="<?php echo $lignes['id']; ?>"> 
+        </div>
+        <div class="col-auto">
+          <span  class="form-text">
+            L' utiliser pour la recherche d'agents non évalués.
+          </span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="inputName" class="col-sm-2 col-form-label">Nom Agent</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="inputNom" value="<?php echo $lignes['nom']; ?>">
+        </div>
+    </div>
+
+    
+    
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Quantité de travail</label>
+        <select class="form-select" id="validationCustom04" name="qt" required>
+          <option selected disabled value=""> ... </option>
+          <option>Mediocre</option>
+          <option>Bon</option>
+          <option>Très Bon</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Qualité de travail</label>
+        <select class="form-select" id="validationCustom04" name="quat" required>
+          <option selected disabled value=""> ... </option>
+          <option>Mediocre</option>
+          <option>Bon</option>
+          <option>Très Bon</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Autonomie de travail</label>
+        <select class="form-select" id="validationCustom04" name="auto" required>
+          <option selected disabled value=""> ... </option>
+          <option>Mediocre</option>
+          <option>Bon</option>
+          <option>Très Bon</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Motivation de travail</label>
+        <select class="form-select" id="validationCustom04" name="mt" required>
+          <option selected disabled value=""> ... </option>
+          <option>Mediocre</option>
+          <option>Bon</option>
+          <option>Très Bon</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Prise d'initiative</label>
+        <select class="form-select" id="validationCustom04" name="pi" required>
+          <option selected disabled value=""> ... </option>
+          <option>Mediocre</option>
+          <option>Bon</option>
+          <option>Très Bon</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+
+
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Relation avec les autres</label>
+        <select class="form-select" id="validationCustom04" name="rl" required>
+          <option selected disabled value=""> ... </option>
+          <option>Mediocre</option>
+          <option>Bon</option>
+          <option>Très Bon</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+    </div>
+
+
+
     <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Ajouter</button>
     <button type="submit" class="btn btn-dark" name="rechercherEvaluation">Rechercher</button>
     <button type="submit" class="btn btn-danger" name="supprimerEvaluation">Supprimer</button>
     <button type="submit" class="btn btn-success" name="modifierEvaluation">Modifier</button>
+    </form>
   </div>
 </body>
 </html>
