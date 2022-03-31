@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ms-auto ">
           <li class="nav-item">
-            <a class="nav-link" href="../index.php">Acceuil</a>
+            <a class="nav-link" href="index.php">Acceuil</a>
           </li>
           <li class="nav-item">
             <a class="btn btn-primary" href="templates/loginDrh.php">Connexion</a>

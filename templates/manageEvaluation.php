@@ -30,7 +30,7 @@ if (isset($_GET['d'])) {
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label" >ID</label>
         <div class="col-sm-1">
-          <input type="tel" class="form-control" name="inputID" value="" > 
+          <input type="tel" class="form-control" name="inputIDE" value="" > 
         </div>
         <div class="col-auto">
           <span  class="form-text">
@@ -130,8 +130,6 @@ if (isset($_GET['d'])) {
       </div>
     </div></br>
 
-
-    
     <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Ajouter</button>
     <button type="submit" class="btn btn-dark" name="rechercherEvaluation">Rechercher</button>
     <button type="submit" class="btn btn-danger" name="supprimerEvaluation">Supprimer</button>
