@@ -27,13 +27,23 @@
       }
   }
 
-  /* RECHERCHER EVALUATION */
+  /* RECHERCHER AGENTS NON EVALUES */
   if (isset($_POST['rechercherEvaluation'])) {
     $id = $_POST['inputID'];
     if ($id == null) {
       header("Location: ../templates/manageEvaluation.php");
     }else{
       header("Location: ../templates/manageEvaluation.php?d=$id");
+    }
+  }
+
+  /* RECHERCHER EVALUATION */
+  if (isset($_POST['inputIDE'])) {
+    $id = $_POST['inputIDE'];
+    if($id == null){
+      header("Location: ../templates/manageEvaluation.php");
+    }else{
+      header("Location: ../templates/manageEvaluation.php?dE=$id");
     }
   }
 

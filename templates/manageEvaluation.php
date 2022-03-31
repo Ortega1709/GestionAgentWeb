@@ -6,11 +6,22 @@ if (empty($_SESSION['current_user'])) {
 
 require("../models/ConnexionDatabase.php");
 require("../models/Agent.php");
+require("../models/Evaluation.php");
+
+/* RESULT AGENTS NON EVALUES */
 if (isset($_GET['d'])) {
   $id = $_GET['d'];
   $res = statusEvalue($id, $connection);
   $lignes = $res->fetch_array();
 }
+
+/* RESULT EVALUATION */
+if (isset($_GET['dE'])) {
+  $id = $_GET['dE'];
+  $res = rechercherEvaluation($id,$connection);
+  $lignes = $res->fetch_array();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,22 +38,11 @@ if (isset($_GET['d'])) {
   <div class="container-md shadow-lg p-3 mb-5 bg-body rounded">
     <h2>Manage Evaluations</h2>
     <form action="../controllers/evaluationController.php" method="post">
-    <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label" >ID</label>
-        <div class="col-sm-1">
-          <input type="tel" class="form-control" name="inputIDE" value="" > 
-        </div>
-        <div class="col-auto">
-          <span  class="form-text">
-            L' utiliser pour la recherche d'agents évalués.
-          </span>
-        </div>
-    </div>
 
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label">ID Agent</label>
         <div class="col-sm-1">
-          <input type="tel" class="form-control" name="inputID" value="<?php echo $lignes['id']; ?>"> 
+          <input type="tel" class="form-control" name="inputID" value="<?php echo $lignes['id']; echo $lignes['idAgent']; ?>"> 
         </div>
         <div class="col-auto">
           <span  class="form-text">
@@ -130,10 +130,8 @@ if (isset($_GET['d'])) {
       </div>
     </div></br>
 
-    <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Ajouter</button>
+    <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Evaluer</button>
     <button type="submit" class="btn btn-dark" name="rechercherEvaluation">Rechercher</button>
-    <button type="submit" class="btn btn-danger" name="supprimerEvaluation">Supprimer</button>
-    <button type="submit" class="btn btn-success" name="modifierEvaluation">Modifier</button>
     </form>
   </div>
 </body>

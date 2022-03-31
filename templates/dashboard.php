@@ -22,6 +22,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>DASHBOARD-ADMIN</title>
@@ -39,55 +40,59 @@
             <a class="nav-link" href="../index.php">Acceuil</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary" href="../templates/loginDrh.php">Déconnexion</a>
+            <a class="btn btn-danger" href="../templates/loginDrh.php">Déconnexion</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav></br>
+  </nav></br></be></br></br></br>
 
   <div class="container-md">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card shadow p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $nba; ?></h5>
-          <p class="card-text">Nombre d'agents enregistrés.</p>
-          <a href="../templates/viewAgent.php" class="btn btn-primary">Voir</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card shadow p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $nbe; ?></h5>
-          <p class="card-text">Nombre d'évaluations effectuées.</p>
-          <a href="../templates/viewEvaluation.php" class="btn btn-primary">Voir</a>
-        </div>
-      </div>
-    </div>
-  </div></br>
+    <div class="row">
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card shadow p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $nbd; ?></h5>
-          <p class="card-text">Nombre de Drhs enregistrés.</p>
-          <a href="../templates/viewDrh.php" class="btn btn-primary">Voir</a>
+      <!--<div class="col">
+        
+      </div>
+
+      <div class="col">
+        
+
+      <div class="col">
+            
+      </div>-->
+      <div class="col">
+        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          <img src="../assets/images/agents.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $nba; ?></h5>
+            <p class="card-text">Nombre d'agents enregistrés.</p>
+            <a href="../templates/viewAgent.php" class="btn btn-primary">Voir</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card shadow p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">Nombre </p>
-          <a href="#" class="btn btn-primary">Voir</a>
+
+      <div class="col">
+        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          <img src="../assets/images/evaluation.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $nbe; ?></h5>
+              <p class="card-text">Nombre d'évaluations.</p>
+              <a href="../templates/viewEvaluation.php" class="btn btn-primary">Voir</a>
+            </div>
         </div>
       </div>
+
+      <div class="col">
+        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          <img src="../assets/images/administrateur.webp.webp" class="card-img-top" alt="..." >
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $nbd; ?></h5>
+              <p class="card-text">Nombre de Drhs enregistrés.</p>
+              <a href="../templates/viewDrh.php" class="btn btn-primary">Voir</a>
+            </div>
+          </div>
+      </div>
     </div>
-  </div>
   </div>
   
   <script src="../js/bootstrap.bundle.min.js"></script>
