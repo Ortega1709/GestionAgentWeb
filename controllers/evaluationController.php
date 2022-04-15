@@ -15,14 +15,14 @@
       $_POST['mt'] == null ||
       $_POST['pi'] == null ||
       $_POST['rl'] == null) {
-        header("Location: ../templates/viewEvaluation.php?msg=Erreur d'évaluation");
+        header("Location: ../templates/viewEvaluation.php?err=Erreur d'évaluation");
       }else{
         $res = ajoutEvaluation($_POST['inputID'],$_POST['inputNom'],$_SESSION['current_user'],$_POST['qt'],$_POST['quat'],$_POST['auto'],$_POST['mt'],$_POST['pi'],$_POST['rl'],date('y-m-d h:i:s'),$connection);
         $res1 = modifierStatusEvaluation($_POST['inputID'],1,$connection);
         if ($res && $res1) {
           header("Location: ../templates/viewEvaluation.php?msg=Evaluation réussie");
         }else {
-          header("Location: ../templates/viewEvaluation.php?msg=Erreur d'évaluation");
+          header("Location: ../templates/viewEvaluation.php?err=Erreur d'évaluation");
         }
       }
   }
@@ -55,6 +55,17 @@
   /* MODIFIER EVALUATION */
   if (isset($_POST['modifierEvaluation'])) {
     echo "Modifier";
+  }
+
+  /* REINITIALISER EVALUATION */
+  if ($_GET['d']) {
+    echo $_GET['d'];
+    $res = reinitialiserEvaluation($connection);
+    if ($res) {
+      header("Location: ../templates/viewEvaluation.php?msg=La table a été réinitialisé");
+    } else {
+      header("Location: ../templates/viewEvaluation.php?err=Echec de la réinitialisation");
+    }
   }
 
 ?>

@@ -39,6 +39,17 @@
   </nav></br>
   <div class="container-md shadow p-3 mb-5 bg-body rounded">
     <h2>Gestion d'Agents</h2>
+
+    <?php if($_GET['msg']){ ?>
+      <div class="alert alert-success" role="alert">
+        <?=$_GET['msg']; ?>
+      </div>
+    <?php }elseif($_GET['err']){ ?>
+      <div class="alert alert-danger" role="alert">
+        <?=$_GET['err']; ?>
+      </div>
+    <?php } ?>
+    
       <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -73,8 +84,32 @@
     </table>
     <div class="container-md">
       <a href="manageAgent.php" class="btn btn-primary">Éditer</a>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Reinitialiser
+      </button>
+      
     </div>
   </div>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Reinitialisation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        La reinitialisation de cette table entrainera des pertes des données.</br>
+        Voulez-vous vraiment effectuer cette opérations ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+        <a href="../controllers/agentController.php?d=b" class="btn btn-primary">Oui</a>      
+      </div>
+    </div>
+  </div>
+</div>
+
   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

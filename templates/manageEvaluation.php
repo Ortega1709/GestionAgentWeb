@@ -132,6 +132,7 @@ if (isset($_GET['dE'])) {
 
     <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Evaluer</button>
     <button type="submit" class="btn btn-dark" name="rechercherEvaluation">Rechercher</button>
+    
     </form>
   </div>
 </body>

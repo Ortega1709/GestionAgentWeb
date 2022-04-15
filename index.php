@@ -29,16 +29,19 @@
   </nav></br>
   <div class="container">
     <div class="line">
-      <div class="home-text">
-        <h1>Gestion d'agents d'une Entreprise</h1>
+      <div class="home-text" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-rigth">
+        <h1>Système d'Evaluation d'agents</h1>
         <p class="text-animation">
-          <span>Faites des évaluations</span>
+          <span>Faites des évaluations de vos agents simplement,</span></br>
+          <span>Imprimer et envoyer les résultats rapidement.</span>
           <!--<span>Avec un système d'évaluations rapide</span>
           <span>facile à utiliser pour l'évaluateur</span>-->
         </p>
       </div>
     </div>
   </div>
+  
+  
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

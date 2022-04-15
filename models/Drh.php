@@ -72,5 +72,11 @@
     return $nb;
   }
 
+  function reinitialiserDrh($connection) {
+    $sql = "TRUNCATE Drh";
+    $res = $connection->query($sql);
+    return $res;
+  }
+
   
 ?>

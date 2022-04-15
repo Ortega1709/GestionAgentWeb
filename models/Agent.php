@@ -100,5 +100,11 @@
     return $res;
   }
 
+  /* FONCTION QUI REINITIALISE LA TABLE AGENT */
+  function reinitialiserAgent($connection) {
+    $sql = "TRUNCATE Agent";
+    $res = $connection->query($sql);
+    return $res;
+  }
   
 ?>

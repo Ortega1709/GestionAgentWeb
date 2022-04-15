@@ -5,16 +5,26 @@ require("../models/Agent.php");
 
 /* AJOUT AGENT */
 if (isset($_POST['ajouterAgent'])) {
-  $res = ajoutAgent($_POST['inputNom'],$_POST['inputPostNom'],$_POST['inputPrenom'],$_POST['inputAdresse'],$_POST['inputFonction'],$_POST['inputPhone'],$_POST['inputDate'],$_POST['inputEmail'],$connection);
+  if(
+    $_POST['inputNom'] == null ||
+    $_POST['inputPostNom'] == null ||
+    $_POST['inputPrenom'] == null ||
+    $_POST['inputAdresse'] == null ||
+    $_POST['inputFonction'] == null ||
+    $_POST['inputPhone'] == null){
+      header("Location: ../templates/viewAgent.php?err=insértion échouée");
   
-  if ($res) {
-    header("Location: ../templates/viewAgent.php?msg=insértion réussie");
-  }else {
-    header("Location: ../templates/viewAgent.php?msg=insértion échouée");
+  }else{
+    $res = ajoutAgent($_POST['inputNom'],$_POST['inputPostNom'],$_POST['inputPrenom'],$_POST['inputAdresse'],$_POST['inputFonction'],$_POST['inputPhone'],$_POST['inputDate'],$_POST['inputEmail'],$connection);
+    if ($res) {
+      header("Location: ../templates/viewAgent.php?msg=insértion réussie");
+    }else {
+      header("Location: ../templates/viewAgent.php?err=insértion échouée");
+    }
   }
 }
 
-/* RECHERCHE AGENT */
+  /* RECHERCHE AGENT */
   if (isset($_POST['rechercherAgent'])) {
     $id = $_POST['inputID'];
     if ($id == null) {
@@ -34,22 +44,44 @@ if (isset($_POST['ajouterAgent'])) {
       if ($res) {
         header("Location: ../templates/viewAgent.php?msg=suppression réussie");
       }else {
-        header("Location: ../templates/viewAgent.php?msg=suppression échouée");
+        header("Location: ../templates/viewAgent.php?err=suppression échouée");
       }
     }
   }
 
   /* MODIFIER AGENT */
   if (isset($_POST['modifierAgent'])) {
-    $res = modifierAgent($_POST['inputID'],$_POST['inputNom'],$_POST['inputPostNom'],$_POST['inputPrenom'],$_POST['inputAdresse'],$_POST['inputFonction'],$_POST['inputPhone'],$_POST['inputDate'],$_POST['inputEmail'],$connection);
+    
+    if(
+      $_POST['inputNom'] == null ||
+      $_POST['inputPostNom'] == null ||
+      $_POST['inputPrenom'] == null ||
+      $_POST['inputAdresse'] == null ||
+      $_POST['inputFonction'] == null ||
+      $_POST['inputPhone'] == null ||
+      $_POST['inputID']
+    ){
+      header("Location: ../templates/viewAgent.php?err=modification échouée");
+    }else{
+      $res = modifierAgent($_POST['inputID'],$_POST['inputNom'],$_POST['inputPostNom'],$_POST['inputPrenom'],$_POST['inputAdresse'],$_POST['inputFonction'],$_POST['inputPhone'],$_POST['inputDate'],$_POST['inputEmail'],$connection);
 
-    if ($res) {
-      header("Location: ../templates/viewAgent.php?msg=modification réussie");
-    }else {
-      header("Location: ../templates/viewAgent.php?msg=modification échouée");
+      if ($res) {
+        header("Location: ../templates/viewAgent.php?msg=modification réussie");
+      }else {
+        header("Location: ../templates/viewAgent.php?err=modification échouée");
+      }
     }
+    
   }
 
+  if ($_GET['d']) {
+    $res = reinitialiserAgent($connection);
+    if ($res) {
+      header("Location: ../templates/viewAgent.php?msg=La table a été réinitialisé");
+    } else {
+      header("Location: ../templates/viewAgent.php?msg=La table n'a pas été réinitialisé");
+    }
+  }
 
 
 

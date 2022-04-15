@@ -47,48 +47,37 @@
     </div>
   </nav></br></be></br></br></br>
 
-  <div class="container-md">
-    <div class="row">
-
-      <!--<div class="col">
-        
-      </div>
-
+  <div class="container px-4">
+    <div class="row gx-5">
       <div class="col">
-        
-
-      <div class="col">
-            
-      </div>-->
-      <div class="col">
-        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
-          <img src="../assets/images/agents.png" class="card-img-top" alt="...">
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          <img src="../assets/images/agents.png." class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><?php echo $nba; ?></h5>
-            <p class="card-text">Nombre d'agents enregistrés.</p>
-            <a href="../templates/viewAgent.php" class="btn btn-primary">Voir</a>
+            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum labore esse eum ad amet harum incidunt repellendus eos eius. Libero quaerat minus quisquam dolorem praesentium, corporis sapiente vitae tempore nobis!</p>
+            <a href="../templates/viewAgent.php" class="btn btn-primary stretched-link">Voir</a>
           </div>
         </div>
       </div>
 
       <div class="col">
-        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
-          <img src="../assets/images/evaluation.jpg" class="card-img-top" alt="...">
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          <img src="../assets/images/evaluation.jpg." class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title"><?php echo $nbe; ?></h5>
-              <p class="card-text">Nombre d'évaluations.</p>
-              <a href="../templates/viewEvaluation.php" class="btn btn-primary">Voir</a>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ad ducimus, dignissimos vel sit ipsam eligendi esse corrupti est, eaque facilis vitae culpa excepturi rem debitis, error blanditiis minus itaque?</p>
+              <a href="../templates/viewEvaluation.php" class="btn btn-primary stretched-link">Voir</a>
             </div>
         </div>
       </div>
 
       <div class="col">
-        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
-          <img src="../assets/images/administrateur.webp.webp" class="card-img-top" alt="..." >
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded " style="width: 18rem;">
+          <img src="../assets/images/administrateur.webp.webp." class="card-img-top" alt="..." >
             <div class="card-body">
               <h5 class="card-title"><?php echo $nbd; ?></h5>
-              <p class="card-text">Nombre de Drhs enregistrés.</p>
-              <a href="../templates/viewDrh.php" class="btn btn-primary">Voir</a>
+              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero quibusdam laboriosam repudiandae nobis eveniet similique, doloremque explicabo reprehenderit porro eaque, eum voluptatem animi accusamus harum, dicta ducimus sapiente ipsa culpa!</p>
+              <a href="../templates/viewDrh.php" class="btn btn-primary stretched-link">Voir</a>
             </div>
           </div>
       </div>

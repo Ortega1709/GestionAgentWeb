@@ -61,5 +61,12 @@
 
     return $nb;
   }
+
+  /* FONCTION QUI REINITIALISE LA TABLE EVALUATION */
+  function reinitialiserEvaluation($connection){
+    $sql = "TRUNCATE Evaluation";
+    $res = $connection->query($sql);
+    return $res;
+  }
   
 ?>

@@ -6,15 +6,18 @@ if (empty($_SESSION['current_user'])) {
 
 require("../models/ConnexionDatabase.php");
 require("../models/Drh.php");
+
 if (isset($_GET['d'])) {
+
   $id = $_GET['d'];
   $res = rechercherDrh($id,$connection);
   $lignes = $res->fetch_array();
+
   $ID = $lignes['id'];
   $EMAIL = $lignes['email'];
   $MOTDEPASSE = $lignes['motDePasse'];
-}
 
+}
 
 
 ?>
@@ -63,10 +66,13 @@ if (isset($_GET['d'])) {
           <input type="password" class="form-control" name="inputPasswordConfirm">
         </div>
     </div>
+    <button type="submit" class="btn btn-primary" name="ajouterDrh">Ajouter</button>
     <button type="submit" class="btn btn-dark" name="rechercherDrh">Rechercher</button>
     <button type="submit" class="btn btn-danger" name="supprimerDrh">Supprimer</button>
     <button type="submit" class="btn btn-success" name="modifierDrh">Modifier</button>
   </form>
   </div>
+
+  
 </body>
 </html>

@@ -12,13 +12,24 @@
   <body>
     </br></br>
     <div class="container-sm">
-    <div class="shadow p-3 mb-5 bg-body rounded">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
     <h2>LOGIN-ADMIN</h2>
+
+    <?php if($_GET['msg']){ ?>
+      <div class="alert alert-success" role="alert">
+        <?=$_GET['msg']; ?>
+      </div>
+    <?php }elseif($_GET['err']){ ?>
+      <div class="alert alert-danger" role="alert">
+        <?=$_GET['err']; ?>
+      </div>
+    <?php } ?>
+
       <form action="../controllers/drhController.php" method="POST">
           <div class="mb-3">
             <div class="col-auto">
             <label for="emailForm" class="form-label">Email</label>
-            <input type="email" id="emailForm" class="form-control" name="emailAdmin">
+            <input type="email" id="emailForm" class="form-control" autocomplete="false"  name="emailAdmin">
             </div>
           </div>
           <div class="mb-3">
