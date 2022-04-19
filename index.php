@@ -3,45 +3,45 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" integrity="sha512-doJrC/ocU8VGVRx3O9981+2aYUn3fuWVWvqLi1U+tA2MWVzsw+NVKq1PrENF03M+TYBP92PnYUlXFH1ZW0FpLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style/style.css">
   <title>Gestion d'agents</title>
 </head>
-<body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h6><?php echo $_SESSION["current_user"]; ?></h6></a>
+<body class="body-home">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-weight: bold; color:white;">EVALUATIONS D'AGENTS</a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ms-auto ">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Acceuil</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" href="templates/loginDrh.php">Connexion</a>
+            <a class="nav-link" href="" style="font-weight: bold; color:white;">Acceuil</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav></br>
-  <div class="container">
-    <div class="line">
-      <div class="home-text" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-rigth">
-        <h1>Système d'Evaluation d'agents</h1>
-        <p class="text-animation">
-          <span>Faites des évaluations de vos agents simplement,</span></br>
-          <span>Imprimer et envoyer les résultats rapidement.</span>
-          <!--<span>Avec un système d'évaluations rapide</span>
-          <span>facile à utiliser pour l'évaluateur</span>-->
-        </p>
-      </div>
-    </div>
+  </nav>
+
+  <div class="carousel-caption">
+    <h1 class="animated bounceInRight" style="animation-delay: .5s;">EVALUATIONS D'AGENTS</h1>
+    <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 1s;">
+        Système d'évaluation d'agents, une application web très simple et rapide à utiliser,
+        Faites vos évaluations avec des simples cliques, et rassurez vous de la fiabilité et sécurité de vos évaluations,
+        Gérez facilement des agents,des directeurs de ressources humaines, et les évaluations éffectuées avec possibilités d'impressions de toutes les évaluations éffectuées.
+    </p>
+    <p></p></br>
+    <p></p></br>
+    <p></p></br>
+    <p class="animated bounceInRight" style="animation-delay: 2s;"><a href="templates/loginDrh.php" title="faire une évaluation">Get Started</a></p>
   </div>
-  
-  
+
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

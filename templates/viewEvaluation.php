@@ -15,14 +15,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <title>VIEW-EVALUATION</title>
+  <link rel="stylesheet" href="../css/style/style.css">
+  <title>evaluation</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h6><?php echo $_SESSION["current_user"]; ?></h6></a>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" title="administrateur(DRH) actuel">
+        <img src="../assets/images/admin-icon.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+        <?php echo $_SESSION["current_user"]; ?>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,15 +35,12 @@
           <li class="nav-item">
             <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" href="../templates/loginDrh.php">Déconnexion</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav></br>
-  <div class="container-md shadow p-3 mb-5 bg-body rounded">
-    <h2>Gestion d'Evaluations</h2>
+  <div class="container-xl">
+    <h2>Evaluations</h2>
 
     <?php if($_GET['msg']){ ?>
       <div class="alert alert-success" role="alert">
@@ -55,8 +56,8 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">ID Agent</th>
-        <th scope="col">Nom Agent</th>
+        <th scope="col">IDAgent</th>
+        <th scope="col">Agent</th>
         <th scope="col">Email DRH</th>
         <th scope="col">Quantite Travail</th>
         <th scope="col">Qualite Travail</th>
@@ -70,27 +71,24 @@
     <?php while($lignes = $result->fetch_array()){ ?>
     <tbody>
       <tr>
-        <td><?php echo $lignes['id']; ?></td>
-        <td><?php echo $lignes['idAgent']; ?></td>
-        <td><?php echo $lignes['nomAgent']; ?></td>
-        <td><?php echo $lignes['nomDrh']; ?></td>
-        <td><?php echo $lignes['quantiteTravail']; ?></td>
-        <td><?php echo $lignes['qualiteTravail']; ?></td>
-        <td><?php echo $lignes['autonomie']; ?></td>
-        <td><?php echo $lignes['motivation']; ?></td>
-        <td><?php echo $lignes['priseInitiative']; ?></td>
-        <td><?php echo $lignes['relation']; ?></td>
-        <td><?php echo $lignes['dateEvaluation']; ?></td>
+        <td><?=$lignes['id']; ?></td>
+        <td><?=$lignes['idAgent']; ?></td>
+        <td><?=$lignes['nomAgent']; ?></td>
+        <td><?=$lignes['nomDrh']; ?></td>
+        <td><?=$lignes['quantiteTravail']; ?></td>
+        <td><?=$lignes['qualiteTravail']; ?></td>
+        <td><?=$lignes['autonomie']; ?></td>
+        <td><?=$lignes['motivation']; ?></td>
+        <td><?=$lignes['priseInitiative']; ?></td>
+        <td><?=$lignes['relation']; ?></td>
+        <td><?=$lignes['dateEvaluation']; ?></td>
       </tr>
     </tbody>
     <?php } ?>
-  </table>
-  <div class="container-md">
-  <div class="container-md">
-      <a href="manageEvaluation.php" class="btn btn-primary">Éditer</a>
-      <a href="viewPDF.php" class="btn btn-success" title="Imprimer les résultats">Imprimer</a>
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Reinitialiser
+    </table>
+      <button onclick=window.location.href="viewPDF.php" class="btn-effectuer" title="Imprimer les résultats">Imprimer</button>
+      <button class="btn-deconnexion" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Réinitialiser
       </button>
   </div>
   </div>
@@ -101,16 +99,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Reinitialisation</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Réinitialisation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        La reinitialisation de cette table entrainera des pertes des données.</br>
-        Voulez-vous vraiment effectuer cette opérations ?
+        La réinitialisation de cette table entrainera des pertes des données.
+        Voulez-vous vraiment effectuer cette opération ?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-        <a href="../controllers/evaluationController.php?d=b" class="btn btn-primary" name="reinitialiserEvaluation">Oui</a>
+        <button type="button" class="btn-cancel-1" data-bs-dismiss="modal">Non</button>
+        <button onclick=window.location.href="../controllers/evaluationController.php?d=b" class="btn-connexion" name="reinitialiserEvaluation">Oui</a>
       </div>
     </div>
   </div>

@@ -61,7 +61,8 @@
   if ($_GET['d']) {
     echo $_GET['d'];
     $res = reinitialiserEvaluation($connection);
-    if ($res) {
+    $res1 = initialiser($connection);
+    if ($res && $res1) {
       header("Location: ../templates/viewEvaluation.php?msg=La table a été réinitialisé");
     } else {
       header("Location: ../templates/viewEvaluation.php?err=Echec de la réinitialisation");

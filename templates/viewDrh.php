@@ -14,30 +14,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <title>VIEW-DRH</title>
+  <link rel="stylesheet" href="../css/style/style.css">
+  <title>Drhs</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h6><?php echo $_SESSION["current_user"]; ?></h6></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ms-auto ">
-          <li class="nav-item">
-            <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" href="../templates/loginDrh.php">Déconnexion</a>
-          </li>
-        </ul>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#" title="administrateur(DRH) actuel">
+          <img src="../assets/images/admin-icon.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+          <?php echo $_SESSION["current_user"]; ?>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item">
+              <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav></br>
-  <div class="container-md shadow p-3 mb-5 bg-body rounded">
+    </nav></br>
+  <div class="container-xl ">
     <h2>Gestion des DRHs</h2>
     
     <?php if($_GET['msg']){ ?>
@@ -69,9 +70,9 @@
       <?php } ?>
     </table>
     <div class="container-md">
-      <a href="manageDrh.php" class="btn btn-primary">Éditer</a>
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Reinitialiser
+      <button onclick=window.location.href="manageDrh.php" class="btn-connexion">Éditer</button>
+      <button type="button" class="btn-deconnexion" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Réinitialiser
       </button>
     </div>
   </div>
@@ -80,16 +81,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Reinitialisation</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Réinitialisation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        La reinitialisation de cette table entrainera des pertes des données.</br>
-        Voulez-vous vraiment effectuer cette opérations ?
+        La réinitialisation de cette table entrainera des pertes des données.
+        Voulez-vous vraiment effectuer cette opération ?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-        <a href="../controllers/drhController.php?d=b" class="btn btn-primary">Reinitialiser</a>
+        <button type="button" class="btn-cancel-1" data-bs-dismiss="modal">Non</button>
+        <button onclick=window.location.href="../controllers/drhController.php?d=b" class="btn-connexion">Oui</a>
       </div>
     </div>
    </div>

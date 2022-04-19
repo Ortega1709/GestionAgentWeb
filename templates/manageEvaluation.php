@@ -8,18 +8,24 @@ require("../models/ConnexionDatabase.php");
 require("../models/Agent.php");
 require("../models/Evaluation.php");
 
-/* RESULT AGENTS NON EVALUES */
-if (isset($_GET['d'])) {
-  $id = $_GET['d'];
-  $res = statusEvalue($id, $connection);
-  $lignes = $res->fetch_array();
-}
-
 /* RESULT EVALUATION */
 if (isset($_GET['dE'])) {
   $id = $_GET['dE'];
   $res = rechercherEvaluation($id,$connection);
   $lignes = $res->fetch_array();
+}
+
+/* EVALUATION */
+if(isset($_GET['ev'])){
+  $id = $_GET['ev'];
+  $nb = mysqli_num_rows(statusEvalue($id,$connection))  ;
+  if ($nb == 1) {
+    $id = $_GET['ev'];
+    $res = statusEvalue($id, $connection);
+    $lignes = $res->fetch_array();
+  }else{
+    header("Location: viewAgent.php?err=Cet agent a déjà été évalué");
+  }
 }
 
 ?>
@@ -31,10 +37,29 @@ if (isset($_GET['dE'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style/style.css">
   <title>MANAGE-EVALUATION</title>
 </head>
 <body>
-  </br></br>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" title="administrateur(DRH) actuel">
+        <img src="../assets/images/admin-icon.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+        <?php echo $_SESSION["current_user"]; ?>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav></br>
+
   <div class="container-md shadow-lg p-3 mb-5 bg-body rounded">
     <h2>Manage Evaluations</h2>
     <form action="../controllers/evaluationController.php" method="post">
@@ -130,8 +155,8 @@ if (isset($_GET['dE'])) {
       </div>
     </div></br>
 
-    <button type="submit" class="btn btn-primary" name="ajouterEvaluation">Evaluer</button>
-    <button type="submit" class="btn btn-dark" name="rechercherEvaluation">Rechercher</button>
+    <button type="submit" class="btn-connexion" name="ajouterEvaluation">Evaluer</button>
+    <button type="submit" class="btn-cancel-1" name="rechercherEvaluation">Rechercher</button>
     
     </form>
   </div>

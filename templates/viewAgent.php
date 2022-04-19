@@ -7,6 +7,16 @@
   require("../models/Agent.php");
 
   $result = agents($connection);
+
+  if ($_GET['s']) {
+    if ($_GET['s'] == 1) {
+      $result = agents($connection);
+    }elseif ($_GET['s'] == 2) {
+      $result = agentsEvalues($connection);
+    }elseif ($_GET['s'] == 3) {
+      $result = agentsNonEvalues($connection);
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,14 +24,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <title>VIEW-AGENT</title>
+  <link rel="stylesheet" href="../css/style/style.css">
+  <title>agent</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h6><?php echo $_SESSION["current_user"]; ?></h6></a>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" title="administrateur(DRH) actuel">
+        <img src="../assets/images/admin-icon.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+        <?php echo $_SESSION["current_user"]; ?>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,15 +44,26 @@
           <li class="nav-item">
             <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
           </li>
+
           <li class="nav-item">
-            <a class="btn btn-primary" href="../templates/loginDrh.php">Déconnexion</a>
+          <form class="d-flex" action="../controllers/agentController.php" method="POST">
+            <select class="form-select" aria-label="Default select example" name="selection">
+              <option value="1">Tous les agents</option>
+              <option value="2">Les Agents évalués</option>
+              <option value="3">Les Agents non-évalués</option>
+            </select><p>...</p>
+            <button class="btn btn-outline-success" type="submit" name="filtrer">Voir</button>
+          </form>
           </li>
         </ul>
       </div>
+
+      
+
     </div>
   </nav></br>
-  <div class="container-md shadow p-3 mb-5 bg-body rounded">
-    <h2>Gestion d'Agents</h2>
+  <div class="container">
+    <h2>Agents</h2>
 
     <?php if($_GET['msg']){ ?>
       <div class="alert alert-success" role="alert">
@@ -55,38 +80,40 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Post-Nom</th>
+                <th scope="col">P.Nom</th>
                 <th scope="col">Prénom</th>
                 <th scope="col">Adresse</th>
                 <th scope="col">Fonction</th>
                 <th scope="col">Téléphone</th>
-                <th scope="col">Date de Naissance</th>
+                <th scope="col">Date Naissance</th>
                 <th scope="col">Email</th>
                 <th scope="col">Est évalué</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
       <?php while($lignes = $result->fetch_array()) {?>
       <tbody>
         <tr>
-          <td><?php echo $lignes['id']; ?></td>
-          <td><?php echo $lignes['nom']; ?></td>
-          <td><?php echo $lignes['postNom']; ?></td>
-          <td><?php echo $lignes['prenom']; ?></td>
-          <td><?php echo $lignes['adresse']; ?></td>
-          <td><?php echo $lignes['fonction']; ?></td>
-          <td><?php echo $lignes['telephone']; ?></td>
-          <td><?php echo $lignes['dateNaissance']; ?></td>
-          <td><?php echo $lignes['email']; ?></td>
-          <td><?php echo $lignes['estEvalue']; ?></td>
+          <td><a href="manageAgent.php?d=<?=$lignes['id']; ?>"><?=$lignes['id']; ?></a></td>
+          <td><?=$lignes['nom']; ?></td>
+          <td><?=$lignes['postNom']; ?></td>
+          <td><?=$lignes['prenom']; ?></td>
+          <td><?=$lignes['adresse']; ?></td>
+          <td><?=$lignes['fonction']; ?></td>
+          <td><?=$lignes['telephone']; ?></td>
+          <td><?=$lignes['dateNaissance']; ?></td>
+          <td><?=$lignes['email']; ?></td>
+          <td><?=$lignes['estEvalue']; ?></td>
+          <td><button class="btn-effectuer" onclick=window.location.href="manageEvaluation.php?ev=<?=$lignes['id']; ?>">Evaluer</button></td>
         </tr>
       </tbody>
       <?php } ?>
     </table>
     <div class="container-md">
-      <a href="manageAgent.php" class="btn btn-primary">Éditer</a>
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Reinitialiser
-      </button>
+      <button onclick=window.location.href="manageAgent.php" class="btn-connexion">Ajouter</button>
+      <button type="button" class="btn-deconnexion" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Réinitialiser
+      </button></br></br>
       
     </div>
   </div>
@@ -95,20 +122,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Reinitialisation</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Réinitialisation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        La reinitialisation de cette table entrainera des pertes des données.</br>
-        Voulez-vous vraiment effectuer cette opérations ?
+        La réinitialisation de cette table entrainera des pertes des données.
+        Voulez-vous vraiment effectuer cette opération ?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-        <a href="../controllers/agentController.php?d=b" class="btn btn-primary">Oui</a>      
+        <button type="button" class="btn-cancel-1" data-bs-dismiss="modal">Non</button>
+        <button onclick=window.location.href="../controllers/agentController.php?d=b" class="btn-connexion">Oui</a>      
       </div>
     </div>
   </div>
-</div>
+  </div>
 
   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>

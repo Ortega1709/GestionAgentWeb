@@ -1,4 +1,4 @@
-<?php session_start(); session_destroy(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,13 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <title>LOGIN-AGENT</title>
+  <link rel="stylesheet" href="../css/style/style.css">
+  <title>login</title>
 </head>
-  <body>
-    </br></br>
-    <div class="container-sm">
+  <body class="body-log">
+  
+    </br></br></br></br></br>
+    <div class="container w-50">
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
-    <h2>LOGIN-ADMIN</h2>
+    <center>
+      <h2 class="hlogin">LOGIN-ADMIN <img src="../assets/images/login.png" alt="..." class="logo"></h2>
+    </center>
+    
 
     <?php if($_GET['msg']){ ?>
       <div class="alert alert-success" role="alert">
@@ -39,8 +44,11 @@
             </div>
           </div>
         
-          <button type="submit" class="btn btn-primary" name="connexionAgent">Submit</button>
+          </br></br>
+          <button type="submit" class="btn-connexion" name="connexionAgent">Connexion</button>
+          <a class="btn-cancel" onclick=window.location.href='../index.php'>Retour</a>
       </form>
+      
     </div>
     </div>
   </body>

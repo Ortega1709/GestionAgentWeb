@@ -1,0 +1,127 @@
+.body-home{
+    background: rgba(0, 0, 0, 0.89) url(../../assets/images/entreprise_2.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.body-log{
+    background: rgba(0, 0, 0, 0.89) url(../../assets/images/entreprise_2.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.body-dashboard{
+    background: rgba(0, 0, 0, .9) url(../../assets/images/entreprise_2.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+.bg-light{
+    background-color: transparent !important;
+}
+
+.carousel-caption a{
+    text-transform: uppercase;
+    text-decoration: none;
+    background: darkorange;
+    padding: 10px 30px;
+    display: inline-block;
+    color: #000;
+    margin-top: 15px;
+    border: 2px solid darkorange;
+    border-radius: 25px;
+}
+
+.carousel-caption a:hover{
+    text-transform: uppercase;
+    text-decoration: none;
+    background: darkorange;
+    padding: 10px 30px;
+    display: inline-block;
+    color: #000;
+    margin-top: 15px;
+    border: 2px solid darkorange;
+    border-radius: 25px;
+    transform: scale(1.1);
+}
+
+.card:hover{
+    transform: scale(1.1);
+    
+}
+
+.btn-connexion{
+    color: white;
+    background-color: rgb(13, 110, 253);
+    padding: 10px 26px;
+    border: 1px solid rgb(13, 110, 253);
+    border-radius: 26px;
+}
+
+.btn-deconnexion{
+    color: white;
+    background-color: rgb(220, 53, 69);
+    padding: 10px 26px;
+    border: 1px solid rgb(220, 53, 69);
+    border-radius: 26px;
+}
+
+.btn-cancel{
+    color: white;
+    background-color: #000;
+    padding: 14px 35px;
+    border: 1px solid #000;
+    border-radius: 26px;
+    text-decoration: none;
+}
+
+.btn-cancel-1{
+    color: white;
+    background-color: #000;
+    padding: 10px 26px;
+    border: 1px solid #000;
+    border-radius: 26px;
+    text-decoration: none;
+}
+
+
+.btn-cancel:hover,
+.btn-cancel:focus{
+    color: white;
+}
+
+.btn-view{
+    color: white;
+    background-color: rgb(13, 110, 253);
+    padding: 10px 26px;
+    border: 1px solid rgb(13, 110, 253);
+    border-radius: 26px;
+}
+
+.logo{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.btn-outline-success{
+    border-radius: 26px;
+}
+
+.btn-effectuer{
+    color: white;
+    background-color: rgb(25, 135, 84);
+    padding: 10px 26px;
+    border: 1px solid rgb(25, 135, 84);
+    border-radius: 26px;
+    text-decoration: none;
+}

@@ -5,12 +5,24 @@
 
   /* LOGIN CONDITION */
   if (isset($_POST['connexionAgent'])) {
-    if(loginDrh($_POST['emailAdmin'],$_POST['passwordAdmin'],$connection)){
-      $_SESSION['current_user'] = $_POST['emailAdmin'];
-      header("Location: ../templates/dashboard.php");
-    }else {
-      header("Location: ../templates/loginDrh.php?err=Erreur de connexion");
+    
+    if ($_POST['emailAdmin'] == null && $_POST['passwordAdmin'] == null) {
+      header("Location: ../templates/loginDrh.php?err=Veuillez entrer vos informations");
+    }elseif ($_POST['passwordAdmin'] == null) {
+      header("Location: ../templates/loginDrh.php?err=Veuillez entrer votre mot de passe");
+    
+    }elseif($_POST['emailAdmin'] == null){
+      header("Location: ../templates/loginDrh.php?err=Veuillez entrer votre adresse e-mail");
+    }else{
+
+      if(loginDrh($_POST['emailAdmin'],$_POST['passwordAdmin'],$connection)){
+        $_SESSION['current_user'] = $_POST['emailAdmin'];
+        header("Location: ../templates/dashboard.php");
+      }else {
+        header("Location: ../templates/loginDrh.php?err=Erreur de connexion");
+      }
     }
+  
   }
 
   /* RECHERCHE DRH */

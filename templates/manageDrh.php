@@ -29,10 +29,29 @@ if (isset($_GET['d'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <title>MANAGE-DRH</title>
+  <link rel="stylesheet" href="../css/style/style.css">
+  <title>Drhs</title>
 </head>
 <body>
-  </br></br>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" title="administrateur(DRH) actuel">
+        <img src="../assets/images/admin-icon.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+        <?php echo $_SESSION["current_user"]; ?>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link" href="../templates/dashboard.php">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav></br>
+  
   <div class="container-md shadow p-3 mb-5 bg-body rounded">
     <h2>Manage Drhs</h2>
     <form action="../controllers/drhController.php" method="post">
@@ -66,10 +85,10 @@ if (isset($_GET['d'])) {
           <input type="password" class="form-control" name="inputPasswordConfirm">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" name="ajouterDrh">Ajouter</button>
-    <button type="submit" class="btn btn-dark" name="rechercherDrh">Rechercher</button>
-    <button type="submit" class="btn btn-danger" name="supprimerDrh">Supprimer</button>
-    <button type="submit" class="btn btn-success" name="modifierDrh">Modifier</button>
+    <button type="submit" class="btn-connexion" name="ajouterDrh">Ajouter</button>
+    <button type="submit" class="btn-cancel-1" name="rechercherDrh">Rechercher</button>
+    <button type="submit" class="btn-deconnexion" name="supprimerDrh">Supprimer</button>
+    <button type="submit" class="btn-effectuer" name="modifierDrh">Modifier</button>
   </form>
   </div>
 

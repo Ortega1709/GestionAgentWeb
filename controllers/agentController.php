@@ -59,7 +59,7 @@ if (isset($_POST['ajouterAgent'])) {
       $_POST['inputAdresse'] == null ||
       $_POST['inputFonction'] == null ||
       $_POST['inputPhone'] == null ||
-      $_POST['inputID']
+      $_POST['inputID'] == null
     ){
       header("Location: ../templates/viewAgent.php?err=modification échouée");
     }else{
@@ -71,9 +71,20 @@ if (isset($_POST['ajouterAgent'])) {
         header("Location: ../templates/viewAgent.php?err=modification échouée");
       }
     }
-    
   }
 
+  /* FILTRER TABLE */
+  if(isset($_POST['filtrer'])){
+    if ($_POST['selection'] == 1) {
+      header("Location: ../templates/viewAgent.php?s=1");
+    }elseif ($_POST['selection'] == 2) {
+      header("Location: ../templates/viewAgent.php?s=2");
+    }elseif ($_POST['selection'] == 3) {
+      header("Location: ../templates/viewAgent.php?s=3");
+    }
+  }
+
+  /* REINITIALISER TABLE */
   if ($_GET['d']) {
     $res = reinitialiserAgent($connection);
     if ($res) {

@@ -93,7 +93,8 @@
     return $nb;
   }
 
-  /* FONCTION QUI RETOURNE LES INFORMATIONS D'UN AGENT EVALUÉ */
+  /* FONCTION QUI RETOURNE LES INFORMATIONS D'un AGENT NON EVALUE PAR SON ID */
+
   function statusEvalue(int $id, $connection){
     $sql = "SELECT * FROM Agent WHERE id = '$id' AND estEvalue= '0'";
     $res = $connection->query($sql);
@@ -103,6 +104,27 @@
   /* FONCTION QUI REINITIALISE LA TABLE AGENT */
   function reinitialiserAgent($connection) {
     $sql = "TRUNCATE Agent";
+    $res = $connection->query($sql);
+    return $res;
+  }
+
+  /* FONCTION QUI REMET A 0 TOUS LES 1 */
+  function initialiser($connection) {
+    $sql = "UPDATE Agent SET estEvalue = 0 WHERE estEvalue = 1";
+    $res = $connection->query($sql);
+    return $res;
+  }
+
+  /* FONCTION QUI RETOURNE TOUS LES AGENTS EVALUES */
+  function agentsEvalues($connection) {
+    $sql = "SELECT * FROM Agent WHERE estEvalue= '1'";
+    $res = $connection->query($sql);
+    return $res;
+  }
+
+  /* FONCTION QUI RETOURNE TOUS LES AGENTS NON EVALUES */
+  function agentsNonEvalues($connection) {
+    $sql = "SELECT * FROM Agent WHERE estEvalue= '0'";
     $res = $connection->query($sql);
     return $res;
   }
